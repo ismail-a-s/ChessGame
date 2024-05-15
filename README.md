@@ -1,19 +1,13 @@
-## Getting Started
+I've developed a classic chess game using Java, and I utilized a variety of resources that Java offers. The main components of my game include a graphical user interface (GUI), the game logic, and a game loop that manages how the game progresses.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+For the GUI, I used JFrame as the main window that contains everything. Inside it, I have a GamePanel, which extends JPanel. This panel is responsible for drawing the chessboard and the pieces and handling user inputs like mouse clicks to move the pieces. Essentially, when you open the game, JFrame pops up and displays the GamePanel.
 
-## Folder Structure
+For the game logic, I've created classes for each type of chess piece, like King, Queen, Rook, and so on. These classes either extend a base class or implement an interface that defines common behaviours. For instance, the King class has a method to check if a move is valid specifically for the King. All these pieces are placed on a chessboard, which I represent as a 2D array. The board handles the initialization and management of these pieces.
 
-The workspace contains two folders by default, where:
+I've also implemented the rules and regulations of chess. This includes checking for valid moves, check, and checkmate conditions. For example, there's a method that determines if the current player is in checkmate.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+To manage the flow of the game, I implemented a simple game loop using the Runnable interface. This game loop updates the game state and renders the game at regular intervals, aiming for a smooth experience, roughly at 60 frames per second. The loop continuously runs, updating and rendering, until the game is stopped.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Additionally, I've included methods to handle user interactions. When you click on the board, the program calculates which tile you clicked on and processes the move. Utility classes help with various tasks, like converting coordinates and validating moves.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-"# ChessGame" 
+Overall, my implementation ensures that the proper rules of chess are followed, providing a functional and enjoyable experience for players.
