@@ -2,6 +2,7 @@ package piece;
 
 import main.Board;
 import main.GamePanel;
+import main.Type;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,12 +10,14 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Piece {
+
+    public Type type;
     public BufferedImage image;
     public int x,y;
     public int col, row, preCol, preRow;
     public int color;
     public Piece hittingP;
-    public boolean moved;
+    public boolean moved, twoStepped;
 
     public Piece(int color, int col, int row){
         this.color = color;
@@ -66,6 +69,14 @@ public class Piece {
     }
 
     public  void updatePosition(){
+
+        //To check if there is an En Passant
+        if(type == Type.PAWN){
+            if(Math.abs(row-preRow) == 2){
+                twoStepped = true;
+            }
+        }
+
         x = getX(col);
         y = getY(row);
         preCol = getCol(x);
